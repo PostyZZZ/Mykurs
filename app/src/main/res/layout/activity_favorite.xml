@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Избранное"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:layout_below="@id/textFavorite"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="?android:attr/windowBackground">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/transl" />
+
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/favor" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings" />
+
+
+    </LinearLayout>
+</RelativeLayout>

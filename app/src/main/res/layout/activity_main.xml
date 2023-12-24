@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введите текст для перевода" />
+
+    <LinearLayout
+        android:id="@+id/languageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/editText">
+
+        <Spinner
+            android:id="@+id/languageSpinner"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/languageLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000000"
+            android:text="Сохранить"
+            app:iconTint="#FFFFFF"
+            app:iconTintMode="add" />
+        <Button
+            android:id="@+id/translateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#000000"
+            android:backgroundTintMode="add"
+            android:text="Перевести"
+            app:iconTint="#FFFFFF"
+            app:iconTintMode="add" />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/translationResult"
+        android:layout_width="match_parent"
+        android:layout_height="570dp"
+        android:layout_below="@id/languageLayout"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text=""
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="?android:attr/windowBackground">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/transl" />
+
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/favor" />
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="136dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings" />
+    </LinearLayout>
+
+</RelativeLayout>
