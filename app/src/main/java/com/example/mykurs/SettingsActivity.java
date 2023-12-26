@@ -1,12 +1,16 @@
 package com.example.mykurs;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-
+import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -22,11 +26,11 @@ public class SettingsActivity extends AppCompatActivity {
         ImageButton btnHome = findViewById(R.id.btnHome);
         ImageButton btnFavorite = findViewById(R.id.btnFavorite);
         ImageButton btnSettings = findViewById(R.id.btnSettings);
+        Button btnFeedback = findViewById(R.id.feedbackButton); // Добавленная кнопка
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Обработка нажатия на кнопку Home
                 Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -36,7 +40,6 @@ public class SettingsActivity extends AppCompatActivity {
         btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Обработка нажатия на кнопку Favorite
                 Intent intent = new Intent(SettingsActivity.this, FavoriteActivity.class);
                 startActivity(intent);
                 finish();
@@ -46,11 +49,46 @@ public class SettingsActivity extends AppCompatActivity {
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Обработка нажатия на кнопку Settings
-                // Можете добавить код для перехода к другим активити
+// Обработка нажатия на кнопку Settings
+// Можете добавить код для перехода к другим активити
             }
         });
 
-        // Можете добавить дополнительную логику для ActivitySettings
+        btnFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFeedbackDialog();
+            }
+        });
+    }
+
+    private void showFeedbackDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Обратная связь");
+        builder.setMessage("Оставьте свой отзыв:");
+
+        final EditText feedbackEditText = new EditText(this);
+        builder.setView(feedbackEditText);
+
+        builder.setPositiveButton("Отправить", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String feedback = feedbackEditText.getText().toString();
+// Здесь можно отправить обратную связь на указанную почту или как-то её обработать.
+// Например, использовать Intent для отправки электронного письма.
+
+// Пример использования Intent:
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"адрес_почты@example.com"});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Обратная связь");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, feedback);
+                startActivity(Intent.createChooser(emailIntent, "Отправить по почте"));
+            }
+        });
+
+        builder.setNegativeButton("Отмена", null);
+
+        builder.show();
     }
 }
