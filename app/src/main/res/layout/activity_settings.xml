@@ -10,8 +10,13 @@
         android:id="@+id/feedbackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Обратная связь"
-        android:onClick="showFeedbackDialog" />
+        android:layout_above="@+id/bottomNavigation"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="630dp"
+        android:backgroundTint="#090404"
+        android:onClick="showFeedbackDialog"
+        android:text="Обратная связь" />
 
     <LinearLayout
         android:id="@+id/bottomNavigation"
